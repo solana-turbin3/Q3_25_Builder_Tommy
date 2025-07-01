@@ -1,5 +1,4 @@
 # Q3_25_Builder_Tommy
-# Turbin3 Cohort Q3
 ## tommy
 
 hello i am tommy
