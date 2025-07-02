@@ -27,4 +27,14 @@ Some things I learned:
 
  </details>
 <details>
-<summary><strong>Week 1 - [Coming Soon]</strong></summary></details>
+<summary><strong>Week 1 - SPL Token, Gill, NFTs</strong></summary>
+
+**Overview**: Day 1 - SPL tokens
+
+Some things I learned:
+ - How to go through the whole process to initialize a mint address then use it for creating metadata, minting the token and then tranferring it to another address.
+ - I figured out a function to take in the decimal amount and make the token amounts more human-readable when modifing the values eg... toTokenAmount(50) / number_tokens(500) to correspond to the actual number of tokens you are sending.
+
+</details>
+
+<details><summary><strong>Week 2 - Coming Soon</strong></summary></details>
