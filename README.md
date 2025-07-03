@@ -35,6 +35,14 @@ Some things I learned:
  - How to go through the whole process to initialize a mint address then use it for creating metadata, minting the token and then tranferring it to another address.
  - I figured out a function to take in the decimal amount and make the token amounts more human-readable when modifing the values eg... toTokenAmount(50) / number_tokens(500) to correspond to the actual number of tokens you are sending.
 
+**Overview**: Day 2 - Gill
+- Learned about Gill and how to use it as a simplifier for web3js and solana/kit. 
+
+**Overview**: Day 3 - SPL tokens
+- Learned how to upload my own image to Pinata and then use the scripts to create a flow
+- nft_metadata handles off-chain json storage on Irys or arweave
+- nft_mint pushes metadata that we defined on-chain and creates the nft, has a reference to the off-chain metadata uri.
+- some marketplaces will take the on-chain metadata, some will take the off-chain metadata.
 </details>
 
 <details><summary><strong>Week 2 - Coming Soon</strong></summary></details>
