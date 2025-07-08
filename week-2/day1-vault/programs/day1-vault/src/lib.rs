@@ -2,6 +2,9 @@ use anchor_lang::{prelude::*, system_program::{Transfer, transfer}};
 
 declare_id!("BS7k9JPu7a9ZQaUAAikE4ZnuBri11V9DyQTdNuxUVyUq");
 
+
+
+
 #[program]
 pub mod day1_vault {
     use super::*;
@@ -170,10 +173,16 @@ impl<'info> Deposit<'info> {
 
 impl<'info> Withdraw<'info> {
     pub fn withdraw(&mut self, amount: u64) -> Result<()> {
-
-        //check the deposit can be withdrawn
+        let vault_balance = self.vault.lamports();
         
-        //check the account has enough funds for the user to withdraw
+        // Calculate minimum rent-exempt balance needed
+        let rent_exempt = Rent::get()?.minimum_balance(0); // 0 because SystemAccount has no data
+        
+        // Calculate maximum withdrawable amount
+        let max_withdrawable = vault_balance.saturating_sub(rent_exempt);
+        
+        // Check if requested amount is safe to withdraw
+        require!(amount <= max_withdrawable, ErrorCode::WouldGoRentExempt); // <---- anchor doesnt have an error code for this(?), so define it ourselves
 
         let cpi_program = self.system_program.to_account_info(); // this is the cpi program (system_program) that will handle the transfer
 
@@ -252,4 +261,18 @@ pub struct VaultState {
 
 impl Space for VaultState {
     const INIT_SPACE: usize = 8 + 1 + 1; // anchor discriminator + vault_bump + state_bump
+}
+
+// =============================================================================
+// ERROR CODES - defining custom error
+// =============================================================================
+
+#[error_code]
+pub enum ErrorCode {
+    #[msg("Insufficient funds in vault")]
+    InsufficientFunds,
+    #[msg("Withdrawal would make account rent-exempt")]
+    WouldGoRentExempt,
+    #[msg("Insufficient withdrawable funds (after rent-exempt reserve)")]
+    InsufficientWithdrawableFunds,
 }
