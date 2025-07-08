@@ -1,0 +1,44 @@
+# Build artifacts and dependencies
+/target/
+Cargo.lock  # Remove this line if this is a binary project (keep for libraries)
+
+# Wallet and key files
+/turbin3-wallet.json
+/dev-wallet.json
+*.keypair
+validator-keypair.json
+
+# Rust backup files
+**/*.rs.bk
+*.pdb
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+/logs/
+/tmp/
+/temp/
+
+# Solana-specific
+*.so
+test-ledger/
+.anchor/
