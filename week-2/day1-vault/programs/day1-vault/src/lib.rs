@@ -31,7 +31,7 @@ pub mod day1_vault {
 
 #[derive(Accounts)]
 pub struct Initialize<'info> {
-    #[account(mut)]
+    #[account(mut)] 
     pub signer: Signer<'info>,
 
     // this is the vault state account that stores our custom data struct
@@ -47,7 +47,7 @@ pub struct Initialize<'info> {
     //this is the system account that will holds SOL and is initialized by receiving SOL
     #[account(
         mut,
-        seeds = [b"vault", signer.key().as_ref()],
+        seeds = [b"vault", vault_state.key().as_ref()],
         bump,
     )]
     pub vault: SystemAccount<'info>,
@@ -69,7 +69,7 @@ pub struct Deposit<'info> {
 
     #[account(
         mut,
-        seeds = [b"vault", signer.key().as_ref()],
+        seeds = [b"vault", vault_state.key().as_ref()],
         bump = vault_state.vault_bump,
     )]
     pub vault: SystemAccount<'info>,
@@ -90,7 +90,7 @@ pub struct Withdraw<'info> {
 
     #[account(
         mut,
-        seeds = [b"vault", signer.key().as_ref()],
+        seeds = [b"vault", vault_state.key().as_ref()],
         bump = vault_state.vault_bump,
     )]
     pub vault: SystemAccount<'info>,
@@ -113,7 +113,7 @@ pub struct Close<'info> {
 
     #[account(
         mut,
-        seeds = [b"vault", signer.key().as_ref()],
+        seeds = [b"vault", vault_state.key().as_ref()],
         bump = vault_state.vault_bump,
     )]
     pub vault: SystemAccount<'info>,
@@ -155,6 +155,10 @@ impl<'info> Deposit<'info> {
 impl<'info> Withdraw<'info> {
     pub fn withdraw(&mut self, amount: u64) -> Result<()> {
 
+        //check the deposit can be withdrawn
+        
+        //check the account has enough funds for the user to withdraw
+
         let cpi_program = self.system_program.to_account_info(); // this is the cpi program (system_program) that will handle the transfer
 
         let cpi_accounts = Transfer { // this is the "envelope" that has the transfer details as a struct, this time the vault is the sender, and the signer is the recipient
@@ -163,9 +167,10 @@ impl<'info> Withdraw<'info> {
         };
 
         // PDA MATHEMATICAL PROOF - These are the "authorization credentials" that prove our program owns the vault PDA
+
         let pda_signing_seeds = [
             b"vault",                                // Step 1: The PDA prefix (like a "document type")
-            self.signer.key.as_ref(),               // Step 2: The user's wallet key (must match original derivation!)
+            self.vault_state.to_account_info().key.as_ref(),               // Step 2: The vault_state key (must match original derivation!)
             &[self.vault_state.vault_bump],         // Step 3: The bump seed (ensures canonical address)
         ];
 
@@ -195,9 +200,10 @@ impl<'info> Close<'info> {
         };
 
         // PDA MATHEMATICAL PROOF - Same authorization credentials pattern as withdraw
+        // let vault_state_key = self.vault_state.key(); --- don't need this part anymore
         let pda_signing_seeds = [
             b"vault",                                // Step 1: The PDA prefix (like a "document type")
-            self.signer.key.as_ref(),               // Step 2: The user's wallet key (must match original derivation!)
+            self.vault_state.to_account_info().key.as_ref(),               // Step 2: The vault_state key (must match original derivation!)
             &[self.vault_state.vault_bump],         // Step 3: The bump seed (ensures canonical address)
         ];
 
@@ -222,6 +228,7 @@ impl<'info> Close<'info> {
 // =============================================================================
 
 #[account]
+
 pub struct VaultState {
     pub vault_bump: u8,
     pub state_bump: u8,
