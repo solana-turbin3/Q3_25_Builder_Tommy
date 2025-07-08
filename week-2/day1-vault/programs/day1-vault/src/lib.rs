@@ -127,9 +127,25 @@ pub struct Close<'info> {
 
 impl<'info> Initialize<'info> {
     pub fn initialize(&mut self, bumps: &InitializeBumps) -> Result<()> {
+        // initialize rent exemption to transfer enough lamports
+        let rent_exempt = Rent::get()?.minimum_balance(self.vault.to_account_info().data_len());
+
+        let cpi_program = self.system_program.to_account_info();
+
+        let cpi_accounts = Transfer {
+            from: self.signer.to_account_info(),
+            to: self.vault.to_account_info(),
+
+        };
+
+        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
+
+        transfer(cpi_ctx, rent_exempt)?;
+
         // TODO: Store bump values in vault_state
         self.vault_state.vault_bump = bumps.vault;
         self.vault_state.state_bump = bumps.vault_state;
+
         Ok(())
     }
 }
