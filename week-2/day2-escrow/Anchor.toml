@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-day2_escrow = "2ETQDQ92wKHZSC7Ey8LggTKGoUQ8NgaEA1RLR4MHvaUU"
+escrow = "FJaGSGgyggHR6Rr1hdEzgWQ9Ysv8KyySSw3Jwq33Ydic"
 
 [registry]
 url = "https://api.apr.dev"
@@ -16,4 +16,4 @@ cluster = "localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+test = "npx tsx create-codama-client.ts; npx tsx --test --no-warnings tests/*.ts"

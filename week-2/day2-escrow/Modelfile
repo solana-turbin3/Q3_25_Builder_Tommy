@@ -1,0 +1,1 @@
+FROM hf.co/nomic-ai/nomic-embed-code-GGUF:latest

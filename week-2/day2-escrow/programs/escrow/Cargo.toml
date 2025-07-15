@@ -1,12 +1,12 @@
 [package]
-name = "day2-escrow"
+name = "escrow"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "day2_escrow"
+name = "escrow"
 
 [features]
 default = []
@@ -18,8 +18,7 @@ idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
 
 
 [dependencies]
-anchor-lang = "0.31.1"
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
 anchor-spl = "0.31.1"
-
 
 
