@@ -45,4 +45,26 @@ Some things I learned:
 - some marketplaces will take the on-chain metadata, some will take the off-chain metadata.
 </details>
 
-<details><summary><strong>Week 2 - Coming Soon</strong></summary></details>
+<details>
+<summary><strong>Week 2 - Vaults, Escrows, and AMMs</strong></summary>
+
+**Overview**: Day 1 - Advanced Vault concepts and Program Derived Addresses
+ 
+Some things I learned:
+ - the building block of all solana programs -- vaults.
+ - to deposit funds and withdraw
+ - how to close a vault and return the rent fee to owner.
+
+**Overview**: Day 2 - Complete Escrow Implementation
+
+Some things I learned:
+ - the building structure of all solana programs -- escrows!
+ - probably one of the hardest things i've learned.
+ - learned about how Anchor bundles account structs, serializes them, and uses handlers to send them to the Solana runtime.
+ - learned about all sorts of Anchor account wrappers and their purposes eg. Program<T>, Account<T>, Interface<T>, InterfaceAccount<T>, AccountInfo<T>, and so on.
+ - did a deep dive into all the Anchor account contraints and what they do.
+ - connected the idea of implement methods as instruction handlers who are doing the "job" to send bytes (which everything has to be converted to) to the Solana runtime
+ - figured out how has_one and init_if_needed do important validation / read tasks when they are checking on data we "wrote" with an initializer like `make_offer.rs`.
+ - Built a full three-instruction escrow: `make_offer`, `take_offer`, and `refund_offer`
+
+</details>
