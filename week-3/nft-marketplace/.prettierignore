@@ -1,0 +1,12 @@
+.anchor
+.DS_Store
+target
+node_modules
+dist
+build
+test-ledger
+.libs
+*.so
+clients/js/src/generated/
+.roo/
+/.roo

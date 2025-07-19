@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "programs/nft-marketplace"
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Common dependencies can go here
