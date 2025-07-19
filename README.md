@@ -67,4 +67,23 @@ Some things I learned:
  - figured out how has_one and init_if_needed do important validation / read tasks when they are checking on data we "wrote" with an initializer like `make_offer.rs`.
  - Built a full three-instruction escrow: `make_offer`, `take_offer`, and `refund_offer`
 
+<br>
+**Overview**: Day 3 - AMM Development (Ongoing)
+
+**Overview**: Day 3 - AMM (Ongoing)
+
+Still working on the AMM video! Fell behind on this one.
+</details>
+
+<details>
+<summary><strong>Week 3 - NFT Staking Program and Marketplace</strong></summary>
+
+Some things I learned:
+
+- How NFTs are staked and frozen in the user's wallet
+- How NFTs can accrue points and be claimed
+- Dived a bit deeper into methods like .to_account_info(), .key(), as_ref(), the context functions and how the runtime expects information to be delivered.
+- learned about the metadata program structs 
+- explored two different types of ways to implement ways to track points accrual on NFTs on an individual basis if we didn't want to aggregate it under user_account. it led to some interesting alternatives for design decisions -- i.e. adding mint.key to user_account versus creating an enhanced StakeAccount struct with accumulated rewards tracking.
+
 </details>
