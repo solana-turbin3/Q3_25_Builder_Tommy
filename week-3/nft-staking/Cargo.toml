@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "programs/nft-staking"
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Common dependencies can go here
+
+[profile.release]
+overflow-checks = true
