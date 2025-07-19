@@ -78,6 +78,7 @@ Still working on the AMM video! Fell behind on this one.
 <details>
 <summary><strong>Week 3 - NFT Staking Program and Marketplace</strong></summary>
 
+**Overview**: NFT Staking
 Some things I learned:
 
 - How NFTs are staked and frozen in the user's wallet
@@ -85,5 +86,15 @@ Some things I learned:
 - Dived a bit deeper into methods like .to_account_info(), .key(), as_ref(), the context functions and how the runtime expects information to be delivered.
 - learned about the metadata program structs 
 - explored two different types of ways to implement ways to track points accrual on NFTs on an individual basis if we didn't want to aggregate it under user_account. it led to some interesting alternatives for design decisions -- i.e. adding mint.key to user_account versus creating an enhanced StakeAccount struct with accumulated rewards tracking.
+
+**Overview**: NFT Marketplace
+Some things I learned:
+
+- Did another refresher deep dive in Anchor Account types and Anchor Constraints -- AI assisted diagrams in /helpful-diagrams.
+- The vault ( is owned by Solana Token Program, but has Authority from Listings PDA, therefore it must be closed by Listings manually via the CPI.
+- The Listings PDA is owned by the Marketplace Program, but has Authority from itself, so it can be closed automatically by the Anchor constraint closer = maker, which takes place after all the functions are complete and automatically sends rent back to the maker.
+- Metadata account verifies the ===> Collection Membership: Ensures the NFT belongs to the specified collection and Collection Verification: Confirms the collection has an official "verified" stamp
+- Master Edition account verifies the ===> "Certificate of Authenticity" that proves this is a real NFT (not just a regular token)
+- We need both Metadata and Master Edition so that people can't list fake tokens as NFTs, list NFTs from unverified/scam collections, and bypass collection-based marketplace rules
 
 </details>
