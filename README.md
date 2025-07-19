@@ -27,7 +27,7 @@ Some things I learned:
 
  </details>
 <details>
-<summary><strong>Week 1 - SPL Token, Gill, NFTs</strong></summary>
+<summary><strong>Week 1 - SPL Token, Gill, NFTs</strong></summary><br>
 
 **Overview**: Day 1 - SPL tokens
 
@@ -46,7 +46,7 @@ Some things I learned:
 </details>
 
 <details>
-<summary><strong>Week 2 - Vaults, Escrows, and AMMs</strong></summary>
+<summary><strong>Week 2 - Vaults, Escrows, and AMMs</strong></summary><br>
 
 **Overview**: Day 1 - Advanced Vault concepts and Program Derived Addresses
  
@@ -68,7 +68,7 @@ Some things I learned:
  - Built a full three-instruction escrow: `make_offer`, `take_offer`, and `refund_offer`
 
 <br>
-**Overview**: Day 3 - AMM Development (Ongoing)
+
 
 **Overview**: Day 3 - AMM (Ongoing)
 
@@ -76,9 +76,9 @@ Still working on the AMM video! Fell behind on this one.
 </details>
 
 <details>
-<summary><strong>Week 3 - NFT Staking Program and Marketplace</strong></summary>
+<summary><strong>Week 3 - NFT Staking Program and Marketplace</strong></summary><br>
 
-**Overview**: NFT Staking
+**Overview**: NFT Staking <br><br>
 Some things I learned:
 
 - How NFTs are staked and frozen in the user's wallet
@@ -87,7 +87,7 @@ Some things I learned:
 - learned about the metadata program structs 
 - explored two different types of ways to implement ways to track points accrual on NFTs on an individual basis if we didn't want to aggregate it under user_account. it led to some interesting alternatives for design decisions -- i.e. adding mint.key to user_account versus creating an enhanced StakeAccount struct with accumulated rewards tracking.
 
-**Overview**: NFT Marketplace
+**Overview**: NFT Marketplace <br><br>
 Some things I learned:
 
 - Did another refresher deep dive in Anchor Account types and Anchor Constraints -- AI assisted diagrams in /helpful-diagrams.
