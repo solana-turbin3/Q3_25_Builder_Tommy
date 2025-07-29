@@ -1,4 +1,4 @@
-# Wasteland Runners - Capstone Final Submission
+# Wasteland Runners - Capstone Assignement #1 Submission
 
 ## Part A: Final Project Proposal
 
