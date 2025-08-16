@@ -1,3 +1,24 @@
+# Wasteland Runners - Capstone Project
+![wasteland-runner](https://github.com/user-attachments/assets/050a758a-49b9-4597-93f2-2e2bf1dd34bb)
+_my pixel art drawing and animation from a year ago_
+
+
+
+## Overview
+
+**Wasteland Runners** is a blockchain-based social game built on Solana where players form guilds and compete in voting-based expeditions through a post-apocalyptic wasteland. 
+
+Players join expeditions and vote on strategic decisions each round. The game processes these votes with randomized outcomes that affect guild performance. At the end of each expedition, rewards are distributed based on how well each guild performed, and players can claim their share of SCRAP tokens.
+
+The game uses automated scheduling (via Tuktuk) to run expeditions in real-time, with each round lasting a set duration. While this capstone version uses simplified randomness, the production version would feature true randomness (via MagicBlock VRF) and Discord bot integration for seamless player interaction.
+
+**Key Features:**
+- Multi-round voting expeditions
+- Guild-based competition and rewards
+- Automated game progression via blockchain scheduling
+- Token-based reward system (SCRAP tokens)
+- Real-time gameplay on Solana devnet
+
 # Accomplishments
 
 1. full end to end functionality on devnet
