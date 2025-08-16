@@ -1,0 +1,75 @@
+{
+  "name": "solana-kite",
+  "version": "1.5.4",
+  "description": "The modern Solana framework for TypeScript.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "private": false,
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run build",
+    "build": "npm run clean && npx tsup src/index.ts --format esm --dts --sourcemap --out-dir dist",
+    "clean": "rm -rf dist",
+    "test": "npx tsx --test --test-concurrency=true src/tests/*"
+  },
+  "keywords": [
+    "solana",
+    "Solana Kit",
+    "blockchain",
+    "secret key",
+    "private key",
+    "keyPair",
+    "devnet SOL",
+    "faucet",
+    "web3.js",
+    "kit",
+    "@solana/helpers"
+  ],
+  "author": "Mike MacCana <mike.maccana@gmail.com>",
+  "contributors": [
+    "Mike MacCana",
+    "Aaron Milano",
+    "Nick Frostbutter",
+    "John Liu",
+    "Steven Luscher",
+    "Christian Krueger",
+    "Ayush Chauhan"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@solana-program/compute-budget": "^0.7.0",
+    "@solana-program/memo": "^0.7.0",
+    "@solana-program/system": "^0.7.0",
+    "@solana-program/token": "^0.5.1",
+    "@solana-program/token-2022": "^0.4.0",
+    "@solana/assertions": "^2.0.1-canary-20241114225255",
+    "@solana/errors": "^2.0.1-canary-20241114225255",
+    "@solana/kit": "^2.3.0",
+    "@solana/transaction-confirmation": "^2.0.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.52",
+    "prettier": "^3.0.3",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

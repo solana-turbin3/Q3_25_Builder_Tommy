@@ -1,0 +1,21 @@
+[package]
+name = "tuktuk-program"
+version = "0.3.2"
+description = "Raw rust sdk for interacting with the tuktuk program"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+[lib]
+name = "tuktuk_program"
+path = "src/lib.rs"
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+anchor-lang = { workspace = true }
+
+[features]
+default = []

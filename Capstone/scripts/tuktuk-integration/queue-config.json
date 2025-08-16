@@ -1,0 +1,9 @@
+{
+  "queueName": "wasteland-runners-clean1",
+  "rpcUrl": "https://api.devnet.solana.com",
+  "walletAddress": "C9dypqzGfReVSnWG3TjfSUzYBrCuAbtwdez2FSheAWey",
+  "fundingAmount": 100000000,
+  "crankReward": 1000000,
+  "capacity": 10,
+  "createdAt": "2025-08-12T23:53:53.932Z"
+}

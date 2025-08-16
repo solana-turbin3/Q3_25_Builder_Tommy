@@ -1,0 +1,4 @@
+# Tuktuk Crank Turner Configuration for Devnet
+rpc_url = "https://api.devnet.solana.com"
+key_path = "/home/tomooshi/.config/solana/id.json"
+min_crank_fee = 10000

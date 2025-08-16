@@ -1,0 +1,9 @@
+tests/temp
+dist
+node_modules
+test-ledger
+.env*
+coverage
+src/temp
+.DS_Store
+TODO.md

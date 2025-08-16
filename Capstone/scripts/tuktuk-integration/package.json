@@ -1,0 +1,30 @@
+{
+  "name": "tuktuk-integration",
+  "version": "1.0.0",
+  "description": "Complete E2E test for Wasteland Runners with Tuktuk crank turner integration",
+  "type": "commonjs",
+  "scripts": {
+    "test": "ts-node src/e2e-test.ts",
+    "e2e": "ts-node src/e2e-test.ts",
+    "init": "tsx src/initialize-game.ts",
+    "manage-queues": "tsx src/manage-queues.ts",
+    "setup": "tsx src/manage-queues.ts",
+    "list-tasks": "tuktuk -u https://api.devnet.solana.com task list --task-queue-name wasteland-runners-queue",
+    "crank-turner": "tuktuk-crank-turner -c crank-turner-config.toml"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.0",
+    "@helium/tuktuk-sdk": "^0.0.8",
+    "@helium/tuktuk-idls": "^0.0.8",
+    "@helium/cron-sdk": "^0.0.8",
+    "@helium/spl-utils": "^0.10.3",
+    "@solana/web3.js": "^1.95.2",
+    "@solana/spl-token": "^0.3.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

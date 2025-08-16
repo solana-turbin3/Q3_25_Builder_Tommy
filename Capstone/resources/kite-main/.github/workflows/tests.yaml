@@ -1,0 +1,32 @@
+# From https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs#using-the-nodejs-starter-workflow
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: metadaoproject/setup-anchor@v3.1
+        with:
+          anchor-version: '0.31.1'
+          solana-cli-version: '2.1.2' 
+          node-version: '24.1.0'
+
+      - name: Run Solana validator (and background it)
+        run: solana-test-validator &
+
+      - name: Install everything
+        run: npm ci
+
+      - name: Check Solana keygen is installed (we use this in some tests)
+        run: echo $PATH; which solana-keygen
+
+      - name: Run tests
+        run: npm run test

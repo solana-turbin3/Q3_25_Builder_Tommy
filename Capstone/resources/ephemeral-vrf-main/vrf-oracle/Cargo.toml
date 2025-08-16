@@ -1,0 +1,27 @@
+
+[package]
+name = "vrf-oracle"
+version = { workspace = true }
+edition = { workspace = true }
+description = "Ephemeral VRF Oracle"
+authors = { workspace = true }
+
+[dependencies]
+clap.workspace = true
+ephemeral-vrf-api = { workspace = true}
+ephemeral-vrf = { workspace = true}
+curve25519-dalek.workspace = true
+solana-curve25519.workspace = true
+solana-sdk.workspace = true
+solana-client.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+log.workspace = true
+env_logger.workspace = true
+solana-account-decoder.workspace = true
+helius-laserstream.workspace = true
+futures-util.workspace = true
+async-trait.workspace = true
+futures-core.workspace = true
+crossbeam-channel.workspace = true
+steel.workspace = true

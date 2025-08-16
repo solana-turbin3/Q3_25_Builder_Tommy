@@ -1,0 +1,22 @@
+[package]
+name = "ephemeral-vrf"
+description = "Core Ephemeral Vrf functionality"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+
+[features]
+no-entrypoint = []
+unit_test_config = []
+
+
+[dependencies]
+curve25519-dalek.workspace = true
+solana-sdk.workspace = true
+sha2.workspace = true
+hkdf.workspace = true

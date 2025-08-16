@@ -1,0 +1,52 @@
+[package]
+name = "capstone"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "capstone"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+custom-heap = []
+custom-panic = []
+anchor-debug = []
+
+
+[dependencies]
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
+anchor-spl = { version = "0.31.1", features = ["idl-build"] }
+solana-program = "2.2.1"
+
+
+tuktuk-program = { git = "https://github.com/helium/tuktuk.git", rev = "112afe5e80aff8199c3b779203b76b35d97c42d1" }
+# Removed tuktuk-sdk - not used in code and causes BPF compilation errors, added this to the testing cargo.toml
+# remove ephemeral-vrf-sdk - replaced with simple on-chain randomness for capstone, ran out of time to figure this out and deploy on the specific MagicBlock devnet
+solana-sysvar = "3.0.0"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }
+rand = "0.8.0"
+
+solana-account = "2.2.1"
+solana-instruction = "2.2.1"
+solana-keypair = "2.2.1"
+solana-pubkey = "2.2.1"
+solana-signer = "2.2.1"
+solana-transaction = "2.2.1"
+solana-system-program = "2.2.1"
+spl-associated-token-account = "6.0.0"
+spl-token = "7.0.0"
+solana-kite = "0.1.0"
+
+[patch.crates-io]
+# Force getrandom to use custom backend for BPF target
+getrandom = { version = "0.2.16", features = ["custom"] }
+

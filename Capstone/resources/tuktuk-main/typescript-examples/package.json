@@ -1,0 +1,62 @@
+{
+  "name": "tuktuk-typescript-examples",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "description": "TypeScript examples for using TukTuk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helium/tuktuk"
+  },
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/src/index.js",
+  "types": "./lib/types/src/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "exports": {
+    "import": "./lib/esm/src/index.js",
+    "require": "./lib/cjs/index.js",
+    "types": "./lib/types/src/index.d.ts"
+  },
+  "scripts": {
+    "memo": "ts-node src/memo.ts",
+    "cron-memo": "ts-node src/cron-memo.ts",
+    "token-transfer": "ts-node src/token-transfer.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "precommit": "npx git-format-staged -f 'prettier --ignore-unknown --stdin --stdin-filepath \"{}\"' .",
+    "start": "node lib/esm/index.js",
+    "dev": "npx ts-node --project tsconfig.cjs.json src/index.ts",
+    "seed-db": "npx ts-node --project tsconfig.cjs.json src/seed-db.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.0",
+    "@helium/spl-utils": "^0.10.3",
+    "@helium/tuktuk-sdk": "^0.0.8",
+    "@helium/tuktuk-idls": "^0.0.8",
+    "@helium/cron-sdk": "^0.0.8",
+    "@solana/spl-token": "^0.3.9",
+    "@solana/web3.js": "^1.95.2",
+    "axios": "^1.8.4",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/yargs": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [],
+  "author": ""
+}
