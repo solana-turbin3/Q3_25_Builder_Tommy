@@ -25,6 +25,10 @@ This is in `tests/wasteland-runners.ts` and it's basically just checking that al
 ```bash
 npx tsx --test tests/wasteland-runners.ts
 ```
+<img width="912" height="562" alt="image" src="https://github.com/user-attachments/assets/8f758744-9252-4e06-92d4-160c4ead9951" />
+<img width="1238" height="1298" alt="image" src="https://github.com/user-attachments/assets/d761920d-3d07-46d3-b3b5-47f67b011296" />
+
+
 
 ### e2e-test.ts
 This is in `scripts/tuktuk-integration/src/e2e-test.ts` and it actually runs a complete game from start to finish on devnet. You have to adjust a few things to get it to work yourself. 
@@ -106,6 +110,9 @@ the E2E test is pretty verbose. it will show you a progress screen that updates 
 - Completes the expedition
 - Distributes rewards
 - Claims tokens
+<img width="2226" height="1628" alt="image" src="https://github.com/user-attachments/assets/d45eb0aa-4698-44eb-b87a-8ec8b11ad200" />
+
+
 
 The whole thing takes a few minutes and you'll see a bunch of transaction links you can check on Solscan to double-check it's going through. Sometimes it will hang on a step for quite a while because devnet is slow and i think Tuktuk needs a better mainnet RPC to be performant.
 
